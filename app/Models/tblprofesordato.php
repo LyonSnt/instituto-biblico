@@ -32,7 +32,7 @@ class tblprofesordato extends Model
 
 
     public $table = 'tblprofesordatos';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -78,30 +78,32 @@ class tblprofesordato extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function tblsexo()
+    public function sexo()
     {
-        return $this->hasOne(\App\Models\tblsexo::class, 'sex_id', 'id');
+        return $this->belongsTo(\App\Models\tblsexo::class, 'sex_id', 'id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function tblestadocivil()
+    public function estadocivil()
     {
-        return $this->hasOne(\App\Models\tblestadocivil::class, 'esc_id', 'id');
+        return $this->belongsTo(\App\Models\tblestadocivil::class, 'esc_id', 'id');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      **/
-    public function tbliglesia()
+    public function iglesia()
     {
-        return $this->hasOne(\App\Models\tbliglesia::class, 'igl_id', 'id');
+        return $this->belongsTo(\App\Models\tbliglesia::class, 'igl_id', 'id');
     }
+
+    
 }

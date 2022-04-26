@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'tblprofesordatos.store']) !!}
+            {!! Form::open(['route' => 'tblprofesordatos.store','method'=>'POST','files' => true]) !!}
 
             <div class="card-body">
                 <div class="row">

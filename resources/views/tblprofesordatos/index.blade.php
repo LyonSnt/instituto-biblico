@@ -26,10 +26,11 @@
         <div class="card">
             <div class="card-body p-0">
                 @include('tblprofesordatos.table')
+             {{--    <img src="/imgprofesor/" alt=""> --}}
 
                 <div class="card-footer clearfix float-right">
                     <div class="float-right">
-                        
+
                     </div>
                 </div>
             </div>

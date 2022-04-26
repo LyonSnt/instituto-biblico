@@ -60,9 +60,24 @@ class tblprofesordatoController extends AppBaseController
     {
         $input = $request->all();
 
+        $request->validate([
+            'pro_imagen' => 'required|image|mimes:jpeg,jpg,png|max:1024'
+        ]);
+
+        $input = $request->all();
+
+        if($imagen = $request->file('pro_imagen')){
+            $rutaGuardarImagen = 'imgprofesor/';
+            $imagenEstudiante = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenEstudiante);
+            $input['pro_imagen'] = $imagenEstudiante;
+
+        }
+
         $tblprofesordato = $this->tblprofesordatoRepository->create($input);
 
         Flash::success(__('messages.saved', ['model' => __('models/tblprofesordatos.singular')]));
+
 
         return redirect(route('tblprofesordatos.index'));
     }

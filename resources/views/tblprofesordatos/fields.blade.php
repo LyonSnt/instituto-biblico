@@ -60,6 +60,8 @@
 
 <!-- Pro Imagen Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('pro_imagen', __('models/tblprofesordatos.fields.pro_imagen').':') !!}
-    {!! Form::file('pro_imagen', null, ['class' => 'form-control']) !!}
+ {{--    {!! Form::label('pro_imagen', __('models/tblprofesordatos.fields.pro_imagen').':') !!} --}}
+
+    {!! Form::label('pro_imagen', 'Choose file', ['class' => 'custom-file-label']) !!}
+    {!! Form::file('pro_imagen', null, ['class' => 'custom-file-input']) !!}
 </div>

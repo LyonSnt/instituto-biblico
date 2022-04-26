@@ -19,6 +19,25 @@ class tblprofesordatoDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
+        /*    $dataTable->editColumn('pro_imagen', function ($item) {
+
+
+        return "<img src='/imgprofesor/'".$item->pro_imagen."'>";
+
+        }); */
+
+
+
+      /*   $dataTable->editColumn('pro_imagen', function ($user) {
+            $url = asset("/imgprofesor/$user->pro_imagen");
+            return '<img src='.$url.' border="0" width="40" class="img-rounded" align="center"/>';
+        })->rawColumns(['pro_imagen', 'action'])->make(true); */
+
+        $dataTable->addColumn('pro_imagen', function ($user) {
+            $url = asset("/imgprofesor/$user->pro_imagen");
+            return '<img src='.$url.' border="0" width="100%" class="img-rounded" align="center"/>';
+        })->rawColumns(['pro_imagen', 'action'])->make(true);
+
         return $dataTable->addColumn('action', 'tblprofesordatos.datatables_actions');
     }
 
@@ -30,7 +49,7 @@ class tblprofesordatoDataTable extends DataTable
      */
     public function query(tblprofesordato $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with(['sexo', 'estadocivil', 'iglesia']);
     }
 
     /**
@@ -50,34 +69,34 @@ class tblprofesordatoDataTable extends DataTable
                 'order'     => [[0, 'desc']],
                 'buttons'   => [
                     [
-                       'extend' => 'create',
-                       'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-plus"></i> ' .__('auth.app.create').''
+                        'extend' => 'create',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-plus"></i> ' . __('auth.app.create') . ''
                     ],
                     [
-                       'extend' => 'export',
-                       'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-download"></i> ' .__('auth.app.export').''
+                        'extend' => 'export',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-download"></i> ' . __('auth.app.export') . ''
                     ],
                     [
-                       'extend' => 'print',
-                       'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-print"></i> ' .__('auth.app.print').''
+                        'extend' => 'print',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-print"></i> ' . __('auth.app.print') . ''
                     ],
                     [
-                       'extend' => 'reset',
-                       'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-undo"></i> ' .__('auth.app.reset').''
+                        'extend' => 'reset',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-undo"></i> ' . __('auth.app.reset') . ''
                     ],
                     [
-                       'extend' => 'reload',
-                       'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-refresh"></i> ' .__('auth.app.reload').''
+                        'extend' => 'reload',
+                        'className' => 'btn btn-default btn-sm no-corner',
+                        'text' => '<i class="fa fa-refresh"></i> ' . __('auth.app.reload') . ''
                     ],
                 ],
-                 'language' => [
-                   'url' => url('//cdn.datatables.net/plug-ins/1.10.12/i18n/English.json'),
-                 ],
+                'language' => [
+                    'url' => url('//cdn.datatables.net/plug-ins/1.10.12/i18n/English.json'),
+                ],
             ]);
     }
 
@@ -89,18 +108,19 @@ class tblprofesordatoDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'id' => new Column(['title' => __('models/tblprofesordatos.fields.id'), 'data' => 'id','searchable' => false]),
-            'pro_cedula' => new Column(['title' => __('models/tblprofesordatos.fields.pro_cedula'), 'data' => 'pro_cedula','searchable' => false]),
-            'pro_apellido' => new Column(['title' => __('models/tblprofesordatos.fields.pro_apellido'), 'data' => 'pro_apellido','searchable' => false]),
-            'pro_nombre' => new Column(['title' => __('models/tblprofesordatos.fields.pro_nombre'), 'data' => 'pro_nombre','searchable' => false]),
-            'sex_id' => new Column(['title' => __('models/tblprofesordatos.fields.sex_id'), 'data' => 'sex_id','searchable' => false]),
-            'esc_id' => new Column(['title' => __('models/tblprofesordatos.fields.esc_id'), 'data' => 'esc_id','searchable' => false]),
-            'pro_fechanacimiento' => new Column(['title' => __('models/tblprofesordatos.fields.pro_fechanacimiento'), 'data' => 'pro_fechanacimiento','searchable' => false]),
-            'pro_fechabautismo' => new Column(['title' => __('models/tblprofesordatos.fields.pro_fechabautismo'), 'data' => 'pro_fechabautismo','searchable' => false]),
-            'pro_celular' => new Column(['title' => __('models/tblprofesordatos.fields.pro_celular'), 'data' => 'pro_celular','searchable' => false]),
-            'pro_direccion' => new Column(['title' => __('models/tblprofesordatos.fields.pro_direccion'), 'data' => 'pro_direccion','searchable' => false]),
-            'igl_id' => new Column(['title' => __('models/tblprofesordatos.fields.igl_id'), 'data' => 'igl_id','searchable' => false]),
-            'pro_imagen' => new Column(['title' => __('models/tblprofesordatos.fields.pro_imagen'), 'data' => 'pro_imagen','searchable' => false])
+            'id' => new Column(['title' => __('models/tblprofesordatos.fields.id'), 'data' => 'id', 'searchable' => false]),
+            'pro_imagen' => new Column(['title' => __('models/tblprofesordatos.fields.pro_imagen'), 'data' => 'pro_imagen', 'searchable' => false]),
+            'pro_cedula' => new Column(['title' => __('models/tblprofesordatos.fields.pro_cedula'), 'data' => 'pro_cedula', 'searchable' => false]),
+            'pro_apellido' => new Column(['title' => __('models/tblprofesordatos.fields.pro_apellido'), 'data' => 'pro_apellido', 'searchable' => false]),
+            'pro_nombre' => new Column(['title' => __('models/tblprofesordatos.fields.pro_nombre'), 'data' => 'pro_nombre', 'searchable' => false]),
+            'sex_id' => new Column(['title' => __('models/tblprofesordatos.fields.sex_id'), 'data' => 'sexo.sex_descripcion', 'searchable' => false]),
+            'esc_id' => new Column(['title' => __('models/tblprofesordatos.fields.esc_id'), 'data' => 'estadocivil.esc_decripcion', 'searchable' => false]),
+            'pro_fechanacimiento' => new Column(['title' => __('models/tblprofesordatos.fields.pro_fechanacimiento'), 'data' => 'pro_fechanacimiento', 'searchable' => false]),
+            'pro_fechabautismo' => new Column(['title' => __('models/tblprofesordatos.fields.pro_fechabautismo'), 'data' => 'pro_fechabautismo', 'searchable' => false]),
+            'pro_celular' => new Column(['title' => __('models/tblprofesordatos.fields.pro_celular'), 'data' => 'pro_celular', 'searchable' => false]),
+            'pro_direccion' => new Column(['title' => __('models/tblprofesordatos.fields.pro_direccion'), 'data' => 'pro_direccion', 'searchable' => false]),
+            'igl_id' => new Column(['title' => __('models/tblprofesordatos.fields.igl_id'), 'data' => 'iglesia.igl_nombre', 'searchable' => false])
+
         ];
     }
 
