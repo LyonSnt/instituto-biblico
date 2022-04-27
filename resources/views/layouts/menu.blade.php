@@ -255,12 +255,6 @@ $urlAdmin = config('fast.admin_prefix');
 </li>
 
 
-<li class="nav-item">
-    <a href="{{ route('tblestudiantes.index') }}"
-       class="nav-link {{ Request::is('tblestudiantes*') ? 'active' : '' }}">
-        <p>@lang('models/tblestudiantes.plural')</p>
-    </a>
-</li>
 
 <li class="nav-item">
     <a href="{{ route('tblprofesornivels.index') }}"
@@ -280,6 +274,13 @@ $urlAdmin = config('fast.admin_prefix');
     <a href="{{ route('tblprofesordatos.index') }}"
        class="nav-link {{ Request::is('tblprofesordatos*') ? 'active' : '' }}">
         <p>@lang('models/tblprofesordatos.plural')</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('estudiantes.index') }}"
+       class="nav-link {{ Request::is('estudiantes*') ? 'active' : '' }}">
+        <p>@lang('models/estudiantes.plural')</p>
     </a>
 </li>
 

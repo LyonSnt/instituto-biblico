@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                      @lang('models/tblestudiantes.singular')
+                     @lang('models/estudiantes.singular')
                 </div>
             </div>
         </div>
@@ -17,19 +17,19 @@
 
         <div class="card">
 
-            {!! Form::model($tblestudiante, ['route' => ['tblestudiantes.update', $tblestudiante->id], 'method' => 'patch']) !!}
+            {!! Form::open(['route' => 'estudiantes.store','method'=>'POST','files' => true]) !!}
 
             <div class="card-body">
                 <div class="row">
-                    @include('tblestudiantes.fields')
+                    @include('estudiantes.fields')
                 </div>
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('tblestudiantes.index') }}" class="btn btn-default">
-                    @lang('crud.cancel')
-                 </a>
+                <a href="{{ route('estudiantes.index') }}" class="btn btn-default">
+                 @lang('crud.cancel')
+                </a>
             </div>
 
             {!! Form::close() !!}

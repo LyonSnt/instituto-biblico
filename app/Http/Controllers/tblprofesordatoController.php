@@ -58,7 +58,6 @@ class tblprofesordatoController extends AppBaseController
      */
     public function store(CreatetblprofesordatoRequest $request)
     {
-        $input = $request->all();
 
         $request->validate([
             'pro_imagen' => 'required|image|mimes:jpeg,jpg,png|max:1024'
@@ -68,9 +67,9 @@ class tblprofesordatoController extends AppBaseController
 
         if($imagen = $request->file('pro_imagen')){
             $rutaGuardarImagen = 'imgprofesor/';
-            $imagenEstudiante = date('YmdHis').".".$imagen->getClientOriginalExtension();
-            $imagen->move($rutaGuardarImagen, $imagenEstudiante);
-            $input['pro_imagen'] = $imagenEstudiante;
+            $imagenProfesor = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenProfesor);
+            $input['pro_imagen'] = $imagenProfesor;
 
         }
 
@@ -110,8 +109,6 @@ class tblprofesordatoController extends AppBaseController
      * @return Response
      */
     public function edit($id)
-
-
     {
         $sexo = tblsexo::pluck('sex_descripcion', 'id');
         $estadocivil = tblestadocivil::pluck('esc_decripcion', 'id');
@@ -145,7 +142,18 @@ class tblprofesordatoController extends AppBaseController
             return redirect(route('tblprofesordatos.index'));
         }
 
-        $tblprofesordato = $this->tblprofesordatoRepository->update($request->all(), $id);
+        $input = $request->all();
+
+        if($imagen = $request->file('pro_imagen')){
+            $rutaGuardarImagen = 'imgprofesor/';
+            $imagenProfesor = date('YmdHis').".".$imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImagen, $imagenProfesor);
+            $input['pro_imagen'] = $imagenProfesor;
+        }else{
+            unset($input['pro_imagen']);  /* TODO ESTE CODIGO ES PARA QUE NO SE EDITE LA FOTO */
+        }
+
+        $tblprofesordato = $this->tblprofesordatoRepository->update($input, $id);
 
         Flash::success(__('messages.updated', ['model' => __('models/tblprofesordatos.singular')]));
 

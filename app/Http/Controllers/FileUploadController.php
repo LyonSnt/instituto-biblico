@@ -63,6 +63,9 @@ class FileUploadController extends AppBaseController
         Flash::success(__('messages.saved', ['model' => __('models/fileUploads.singular')]));
 
         return redirect(route('fileUploads.index'));
+
+
+        
     }
 
     /**

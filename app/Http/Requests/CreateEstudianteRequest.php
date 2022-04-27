@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\tblestudiante;
+use App\Models\Estudiante;
 
-class CreatetblestudianteRequest extends FormRequest
+class CreateEstudianteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,6 @@ class CreatetblestudianteRequest extends FormRequest
      */
     public function rules()
     {
-        return tblestudiante::$rules;
+        return Estudiante::$rules;
     }
 }

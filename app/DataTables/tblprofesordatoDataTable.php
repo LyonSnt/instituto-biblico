@@ -19,21 +19,7 @@ class tblprofesordatoDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        /*    $dataTable->editColumn('pro_imagen', function ($item) {
-
-
-        return "<img src='/imgprofesor/'".$item->pro_imagen."'>";
-
-        }); */
-
-
-
-      /*   $dataTable->editColumn('pro_imagen', function ($user) {
-            $url = asset("/imgprofesor/$user->pro_imagen");
-            return '<img src='.$url.' border="0" width="40" class="img-rounded" align="center"/>';
-        })->rawColumns(['pro_imagen', 'action'])->make(true); */
-
-        $dataTable->addColumn('pro_imagen', function ($user) {
+        $dataTable->editColumn('pro_imagen', function ($user) {
             $url = asset("/imgprofesor/$user->pro_imagen");
             return '<img src='.$url.' border="0" width="100%" class="img-rounded" align="center"/>';
         })->rawColumns(['pro_imagen', 'action'])->make(true);

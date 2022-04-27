@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'singular' => 'tblestudiante',
-  'plural' => 'tblestudiantes',
+  'singular' => 'Estudiante',
+  'plural' => 'Estudiantes',
   'fields' => 
   array (
     'id' => 'Id',
@@ -16,6 +16,7 @@ return array (
     'est_celular' => 'Est Celular',
     'est_direccion' => 'Est Direccion',
     'igl_id' => 'Igl Id',
+    'est_imagen' => 'Est Imagen',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
   ),

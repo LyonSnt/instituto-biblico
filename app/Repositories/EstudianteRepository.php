@@ -2,16 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Models\tblestudiante;
+use App\Models\Estudiante;
 use App\Repositories\BaseRepository;
 
 /**
- * Class tblestudianteRepository
+ * Class EstudianteRepository
  * @package App\Repositories
- * @version April 22, 2022, 5:33 pm -05
+ * @version April 26, 2022, 3:39 pm -05
 */
 
-class tblestudianteRepository extends BaseRepository
+class EstudianteRepository extends BaseRepository
 {
     /**
      * @var array
@@ -26,7 +26,8 @@ class tblestudianteRepository extends BaseRepository
         'est_fechabautismo',
         'est_celular',
         'est_direccion',
-        'igl_id'
+        'igl_id',
+        'est_imagen'
     ];
 
     /**
@@ -44,6 +45,6 @@ class tblestudianteRepository extends BaseRepository
      **/
     public function model()
     {
-        return tblestudiante::class;
+        return Estudiante::class;
     }
 }

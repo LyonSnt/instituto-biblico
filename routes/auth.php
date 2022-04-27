@@ -61,7 +61,6 @@ Route::resource('tblanioacademicos', App\Http\Controllers\tblanioacademicoContro
 
 Route::resource('tblinstitucions', App\Http\Controllers\tblinstitucionController::class);
 
-Route::resource('tblestudiantes', App\Http\Controllers\tblestudianteController::class);
 
 
 Route::resource('tblprofesornivels', App\Http\Controllers\tblprofesornivelController::class);
@@ -71,3 +70,6 @@ Route::resource('tbldirectivas', App\Http\Controllers\tbldirectivaController::cl
 
 
 Route::resource('tblprofesordatos', App\Http\Controllers\tblprofesordatoController::class);
+
+
+Route::resource('estudiantes', App\Http\Controllers\EstudianteController::class);

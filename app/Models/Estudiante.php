@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
- * Class tblestudiante
+ * Class Estudiante
  * @package App\Models
- * @version April 22, 2022, 5:33 pm -05
+ * @version April 26, 2022, 3:39 pm -05
  *
  * @property \App\Models\tblsexo $tblsexo
  * @property \App\Models\tblestadocivil $tblestadocivil
@@ -21,11 +21,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $esc_id
  * @property string $est_fechanacimiento
  * @property string $est_fechabautismo
- * @property integer $est_celular
+ * @property string $est_celular
  * @property string $est_direccion
- * @property string $igl_id
+ * @property integer $igl_id
+ * @property string $est_imagen
  */
-class tblestudiante extends Model
+class Estudiante extends Model
 {
     use SoftDeletes;
 
@@ -47,7 +48,8 @@ class tblestudiante extends Model
         'est_fechabautismo',
         'est_celular',
         'est_direccion',
-        'igl_id'
+        'igl_id',
+        'est_imagen'
     ];
 
     /**
@@ -64,9 +66,10 @@ class tblestudiante extends Model
         'esc_id' => 'integer',
         'est_fechanacimiento' => 'string',
         'est_fechabautismo' => 'string',
-        'est_celular' => 'integer',
+        'est_celular' => 'string',
         'est_direccion' => 'string',
-        'igl_id' => 'string'
+        'igl_id' => 'integer',
+        'est_imagen' => 'string'
     ];
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblestudiantesTable extends Migration
+class CreateEstudiantesTable extends Migration
 {
 
     /**
@@ -31,6 +31,7 @@ class CreateTblestudiantesTable extends Migration
             $table->string('est_direccion');
             $table->unsignedInteger('igl_id');
             $table->foreign('igl_id', 'fk_tbliglesia_tblestudiante')->references('id')->on('tbliglesias')->onDelete('cascade')->onUpdate('restrict');
+            $table->string('est_imagen');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -43,6 +44,6 @@ class CreateTblestudiantesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tblestudiantes');
+        Schema::drop('estudiantes');
     }
 }

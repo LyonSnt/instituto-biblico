@@ -17,8 +17,9 @@
 
         <div class="card">
 
-            {!! Form::model($tblprofesordato, ['route' => ['tblprofesordatos.update', $tblprofesordato->id], 'method' => 'patch']) !!}
-
+            {!! Form::model($tblprofesordato, ['route' => ['tblprofesordatos.update', $tblprofesordato->id], 'method' => 'patch','files' => true]) !!}
+        {{--     {!! Form::open(['route' => 'tblprofesordatos.store','method'=>'POST','files' => true]) !!}
+ --}}
             <div class="card-body">
                 <div class="row">
                     @include('tblprofesordatos.fields')

@@ -5,11 +5,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>@lang('models/tblestudiantes.singular')</h1>
+                    <h1>@lang('models/estudiantes.singular')</h1>
                 </div>
                 <div class="col-sm-6">
                     <a class="btn btn-default float-right"
-                       href="{{ route('tblestudiantes.index') }}">
+                       href="{{ route('estudiantes.index') }}">
                          @lang('crud.back')
                     </a>
                 </div>
@@ -21,7 +21,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    @include('tblestudiantes.show_fields')
+                    @include('estudiantes.show_fields')
                 </div>
             </div>
         </div>
