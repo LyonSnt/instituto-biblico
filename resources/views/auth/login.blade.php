@@ -3,13 +3,17 @@
     hold-transition login-page
 @endpush
 
+
 @section('content')
+
 
     <div class="login-box">
 
         <div class="login-logo">
-         {{--    <a href="{{ route('home') }}"><b>{{ config('app.name') }}</b></a> --}}
-         <button class="btn btn-primary btn-block"><h3>Instituto Bíblico Alianza Kichwa Otavalo</h3></button>
+            {{-- <a href="{{ route('home') }}"><b>{{ config('app.name') }}</b></a> --}}
+            <button class="btn btn-primary btn-block">
+                <h3>Instituto Bíblico Alianza Kichwa Otavalo</h3>
+            </button>
 
         </div>
 

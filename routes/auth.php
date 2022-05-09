@@ -73,3 +73,16 @@ Route::resource('tblprofesordatos', App\Http\Controllers\tblprofesordatoControll
 
 
 Route::resource('estudiantes', App\Http\Controllers\EstudianteController::class);
+
+
+
+
+Route::resource('asignaturas', App\Http\Controllers\AsignaturaController::class);
+
+
+Route::resource('mes', App\Http\Controllers\MesController::class);
+
+
+
+
+Route::resource('matriculas', App\Http\Controllers\MatriculaController::class);

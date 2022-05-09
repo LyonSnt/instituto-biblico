@@ -284,3 +284,26 @@ $urlAdmin = config('fast.admin_prefix');
     </a>
 </li>
 
+
+<li class="nav-item">
+    <a href="{{ route('asignaturas.index') }}"
+       class="nav-link {{ Request::is('asignaturas*') ? 'active' : '' }}">
+        <p>@lang('models/asignaturas.plural')</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="{{ route('mes.index') }}"
+       class="nav-link {{ Request::is('mes*') ? 'active' : '' }}">
+        <p>@lang('models/mes.plural')</p>
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="{{ route('matriculas.index') }}"
+       class="nav-link {{ Request::is('matriculas*') ? 'active' : '' }}">
+        <p>@lang('models/matriculas.plural')</p>
+    </a>
+</li>
+

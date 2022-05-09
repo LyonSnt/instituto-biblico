@@ -7,26 +7,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 /**
- * Class tblaula
+ * Class Mes
  * @package App\Models
- * @version April 21, 2022, 1:52 am UTC
+ * @version May 9, 2022, 12:28 pm -05
  *
- * @property string $aul_nombre
+ * @property string $mes_nombre
  */
-class tblaula extends Model
+class Mes extends Model
 {
     use SoftDeletes;
 
 
-    public $table = 'tblaulas';
-
+    public $table = 'mes';
+    
 
     protected $dates = ['deleted_at'];
 
 
 
     public $fillable = [
-        'aul_nombre'
+        'mes_nombre'
     ];
 
     /**
@@ -36,7 +36,7 @@ class tblaula extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'aul_nombre' => 'string'
+        'mes_nombre' => 'string'
     ];
 
     /**
@@ -45,8 +45,8 @@ class tblaula extends Model
      * @var array
      */
     public static $rules = [
-
+        
     ];
 
-
+    
 }
